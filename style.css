@@ -1,0 +1,27 @@
+.header{
+    background-color: #2e3a46;
+    height: 8vh;
+    width: 100vw;
+    
+}
+.header img{
+    width: 2.2rem;
+    margin-left: 1rem;
+}
+.content{
+    background-color: #1e2d3b;
+    height: 92vh;
+}
+.myCard{
+    background-color: #2e3a46;
+    width: calc(100% / 5 - 1.2rem);
+    height: 17rem;
+}
+.myCard h6{
+    text-transform: uppercase;
+    color: white;
+}
+.myCard .text{
+    color: gray;
+    font-size: smaller;
+}
