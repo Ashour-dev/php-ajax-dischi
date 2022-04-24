@@ -1,5 +1,6 @@
 <?php
-
+// l'include non funziona
+// include __DIR__ '/data.php';
 $cards= [
     [
         "poster"=> "https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg",
@@ -72,7 +73,6 @@ $cards= [
         "year"=> "1987"
     ]
 ];
-    // include __DIR__ '/data.php';
     header('Content-Type: application/json');
     echo json_encode(
         [

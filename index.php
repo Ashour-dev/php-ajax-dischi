@@ -1,5 +1,5 @@
 <?php
-
+// l'include non funziona
 // include __DIR__ "/partials/data.php";
 
 ?>
@@ -16,14 +16,43 @@
     <title>Dischi</title>
 </head>
 <body>
+    <main id="app">
     <div class="header d-flex justify-content-between align-items-center">
         <img src="img/logo.png" alt="">
+        <div class="right me-2 d-flex justify-content-between align-items-center">
+            <label class="text-white me-2" for="genera">Genera:</label>
+            <select v-model="genera" class="form-select shadow-none" name="genera">
+                <option value="All">All</option>
+                <option value="Pop">Pop</option>
+                <option value="Rock">Rock</option>
+                <option value="Jazz">Jazz</option>
+                <option value="Metal">Metal</option>
+            </select>
+            <label class="text-white ms-2" for="artist">Artist:</label>
+            <select v-model="artist" class="form-select shadow-none ms-2" name="artist">
+                <option value="All">All</option>
+                <option value="Bon Jovi">Bon Jovi</option>
+                <option value="Queen">Queen</option>
+                <option value="Sting">Sting</option>
+                <option value="Steve Gadd Band">Steve Gadd Band</option>
+                <option value="Iron Maiden">Iron Maiden</option>
+                <option value="Eric Clapton">Eric Clapton</option>
+                <option value="Deep Purple">Deep Purple</option>
+                <option value="Metallica">Metallica</option>
+                <option value="Dave Weckl">Dave Weckl</option>
+                <option value="Michael Jacjson">Michael Jacjson</option>
+            </select>
+        </div>
     </div>
-    <div class="content" id="app">
+    <div class="content">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-7 contentWrapper mt-5 mx-auto d-flex flex-wrap gap-3">
-                    <div class="myCard" v-for="card in cards">
+                <div class="col-7 contentWrapper mt-5 mx-auto d-flex flex-wrap gap-3" v-if="cards">
+                    <div class="myCard" v-for="card in cards"
+                    :class="((genera=='All' && artist=='All')
+                    ||(genera=='All' && artist==card.author)
+                    ||(genera==card.genre && artist=='All')
+                    ||(genera==card.genre && artist==card.author)) ? 'd-block': 'd-none'">
                         <img class="p-3 w-100" :src="card.poster" alt="card.title">
                         <div class="text text-center">
                             <h6 class="px-3">
@@ -40,6 +69,8 @@
             </div>
         </div>
     </div>
+    </main>
+    
     <script src="main.js"></script>
 </body>
 </html>
