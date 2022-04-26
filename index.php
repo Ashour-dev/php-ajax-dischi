@@ -1,8 +1,3 @@
-<?php
-// l'include non funziona
-// include __DIR__ "/partials/data.php";
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
